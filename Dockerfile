@@ -31,4 +31,6 @@ RUN git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/rub
 RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 RUN echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 RUN /bin/bash -l -c "rbenv install 2.2.3"
-RUN gem install bundler
+RUN /bin/bash -l -c "rbenv rehash"
+RUN /bin/bash -l -c "rbenv global 2.2.3"
+RUN /bin/bash -l -c "rbenv exec gem install bundler"
